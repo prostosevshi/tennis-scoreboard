@@ -15,7 +15,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 
     // Servlet API
-    providedCompile ("javax.servlet:javax.servlet-api:4.0.1")
+    compileOnly ("jakarta.servlet:jakarta.servlet-api:6.0.0")
+
 
     // Hibernate
     implementation ("org.hibernate.orm:hibernate-core:6.4.4.Final")

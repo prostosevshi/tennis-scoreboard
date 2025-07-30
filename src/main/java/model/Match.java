@@ -18,6 +18,12 @@ public class Match {
     @ManyToOne
     private Player winner;
 
+    @Column(nullable = false)
+    private String status;
+
+    @Column(nullable = false)
+    private String score;
+
     public int getId() {
         return id;
     }
@@ -44,5 +50,21 @@ public class Match {
 
     public void setWinner(Player winner) {
         this.winner = winner;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MatchDAO {
 
-    public void Save(Match match) {
+    public void save(Match match) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             tx = session.beginTransaction();
@@ -23,13 +23,13 @@ public class MatchDAO {
         }
     }
 
-    public List<Match> FindAll() {
+    public List<Match> findAll() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("from Match", Match.class).list();
         }
     }
 
-    public Match FindById(int id) {
+    public Match findById(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(Match.class, id);
         }

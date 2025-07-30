@@ -9,7 +9,7 @@ import model.Player;
 
 import java.io.IOException;
 
-@WebServlet
+@WebServlet("/add-player")
 public class AddPlayerServlet extends HttpServlet {
 
     private final PlayerDAO playerDAO = new PlayerDAO();

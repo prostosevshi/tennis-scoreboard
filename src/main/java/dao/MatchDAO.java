@@ -1,5 +1,6 @@
 package dao;
 
+import jakarta.persistence.EntityTransaction;
 import model.Match;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,15 +11,20 @@ import java.util.List;
 public class MatchDAO {
 
     public void save(Match match) {
-        Transaction tx = null;
+        Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            tx = session.beginTransaction();
+            transaction = session.beginTransaction();
             session.persist(match);
-            tx.commit();
+            transaction.commit();
         } catch (Exception e) {
-            if (tx != null) {
-                tx.rollback();
+            if (transaction != null && transaction.getStatus().canRollback()) {
+                try {
+                    transaction.rollback();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
+            e.printStackTrace();
             throw e;
         }
     }
@@ -29,9 +35,23 @@ public class MatchDAO {
         }
     }
 
-    public Match findById(int id) {
+    public Match findById(Long id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(Match.class, id);
+        }
+    }
+
+    public void update(Match match) {
+        Transaction tx = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            tx = session.beginTransaction();
+            session.merge(match);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            throw e;
         }
     }
 }

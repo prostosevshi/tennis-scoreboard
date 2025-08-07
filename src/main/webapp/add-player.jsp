@@ -16,5 +16,8 @@
         Name: <input type="text" name="name" required>
         <button type="submit">Add</button>
     </form>
+
+    <p><a href="players">← Players</a></p>
+    <p><a href="index.jsp">← Back to Home</a></p>
 </body>
 </html>

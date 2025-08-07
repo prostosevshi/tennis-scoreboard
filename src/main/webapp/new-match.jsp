@@ -32,9 +32,12 @@
         <% } %>
     </select>
     <br><br>
-    <input type="submit" value="Начать матч">
+    <input type="submit" value="Begin match">
 </form>
 
-<p><a href="players">← Back to players</a></p>
+<p><a href="players">← Players</a></p>
+<p><a href="index.jsp">← Back to Home</a></p>
+<p><a href="matches">← Back to the list of matches</a></p>
+
 </body>
 </html>

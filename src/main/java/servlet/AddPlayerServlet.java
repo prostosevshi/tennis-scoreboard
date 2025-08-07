@@ -19,13 +19,13 @@ public class AddPlayerServlet extends HttpServlet {
 
         String name = request.getParameter("name");
 
-        if (name != null && name.isBlank()) {
+        if (name != null && !name.isBlank()) {
             Player player = new Player();
             player.setName(name);
 
             try {
                 playerDAO.save(player);
-                response.sendRedirect("add-player.jsp");
+                response.sendRedirect("players");
             } catch (Exception e) {
                 response.getWriter().write("Error: name is already in use");
             }

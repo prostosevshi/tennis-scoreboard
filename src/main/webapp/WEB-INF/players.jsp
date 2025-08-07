@@ -12,7 +12,7 @@
 %>
 <html>
 <head>
-    <title>List of players</title>
+    <title>Players list</title>
 </head>
 <body>
     <h2>All players</h2>
@@ -25,6 +25,9 @@
         </tr>
         <% } %>
     </table>
-    <a href="add-player.jsp">Add new player</a>
+
+    <p><a href="add-player.jsp">Add new player</a></p>
+    <p><a href="new-match.jsp">Create new match</a></p>
+    <p><a href="index.jsp">← Back to Home</a></p>
 </body>
 </html>

@@ -34,6 +34,8 @@ public class CreateMatchServlet extends HttpServlet {
         Match match = new Match();
         match.setPlayer1(player1);
         match.setPlayer2(player2);
+        match.setWinner(null);
+        match.setScore("0-0");
         match.setStatus("ONGOING");
 
         matchDAO.save(match);
